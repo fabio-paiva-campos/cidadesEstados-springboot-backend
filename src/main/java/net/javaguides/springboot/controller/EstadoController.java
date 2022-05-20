@@ -43,18 +43,17 @@ public class EstadoController {
 	// get estado by id rest api
 	@GetMapping("/estados/{id}")
 	public ResponseEntity<Estado> getEstadoById(@PathVariable Long id) {
-		Estado estado = estadoRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
+		Estado estado = estadoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
 		return ResponseEntity.ok(estado);
 	}
 	
 	// update estado rest api
 	@PutMapping("/estados/{id}")
 	public ResponseEntity<Estado> updateEstado(@PathVariable Long id, @RequestBody Estado estadoDetails){
-		Estado estado = estadoRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
+		Estado estado = estadoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
 		
 		estado.setEstado(estadoDetails.getEstado());
+		estado.setSigla(estadoDetails.getSigla());
 		
 		Estado updatedEstado = estadoRepository.save(estado);
 		return ResponseEntity.ok(updatedEstado);
@@ -63,8 +62,7 @@ public class EstadoController {
 	// delete estado rest api
 	@DeleteMapping("/estados/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteEstado(@PathVariable Long id){
-		Estado estado = estadoRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
+		Estado estado = estadoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Estado nao existe:" + id));
 		
 		estadoRepository.delete(estado);
 		Map<String, Boolean> response = new HashMap<>();
