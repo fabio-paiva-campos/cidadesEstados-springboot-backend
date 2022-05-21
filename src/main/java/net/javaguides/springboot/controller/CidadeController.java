@@ -22,7 +22,7 @@ import net.javaguides.springboot.repository.CidadeRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/")
 public class CidadeController {
 
 	@Autowired
