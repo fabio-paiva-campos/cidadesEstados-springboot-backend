@@ -8,26 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "estados")
-public class Estado {
+@Table(name = "usuarios")
+public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "estado")
-	private String estado;
+	@Column(name = "usuario")
+	private String usuario;
 
-	@Column(name = "sigla")
-	private String sigla;
+	@Column(name = "senha")
+	private String senha;
 	
-	public Estado() {
+	public Usuario() {
 		
 	}
 	
-	public Estado(String estado) {
+	public Usuario(String usuario) {
 		super();
-		this.estado = estado;
+		this.usuario = usuario;
 	}
 	public long getId() {
 		return id;
@@ -35,16 +35,16 @@ public class Estado {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getEstado() {
-		return estado;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
-	public String getSigla() {
-		return sigla;
+	public String getSenha() {
+		return senha;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }
